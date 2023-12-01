@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全屏自适应</title>
+	<link rel="stylesheet" href="reset.css">
+	<style>
+		body {			
+		overflow: hidden;
+		}
+		.parent {
+			/*position:relative;*/
+			/*height:700px;*/
+			outline:1px solid green;
+		}
+		.parent > div {
+			position: absolute;
+			font: 20px/1.14 arial,'microsoft yahei';
+			text-align: center;
+		}		
+		.top {
+			top:0;
+			left:0;
+			right:0;
+			height:100px;
+			outline:1px solid red;
+		}
+		.left {
+			top:100px;
+			left:0;
+			width:200px;
+			bottom:50px;
+			outline: 1px solid blue;
+		}
+		.right {
+			left:200px;
+			top:100px;
+			right:0;
+			bottom: 50px;
+			outline:1px solid green;
+			overflow: auto;
+		}
+		.right > div {
+			position: relative;
+			height:3000px;
+			line-height: 1000px;
+			outline:2px dashed green;
+			width:80%;
+			margin:0 auto;
+		}
+		.bottom {
+			left:0;
+			height:50px;
+			bottom:0;
+			right:0;
+			outline: 1px solid pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="top"><span>定高，宽度自适应</span></div>
+		<div class="left"><span>定宽，高度自适应</span></div>
+		<div class="right"><span>自适应</span><div>inner</div></div>
+		<div class="bottom"><span>定高，宽自适应</span></div>
+	</div>
+</body>
+</html>

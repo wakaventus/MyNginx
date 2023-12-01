@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="reset.css">
+	<script src="jquery.min.js"></script>
+	<style>
+		.vis_window {
+			position:relative;
+			top:20px;
+			left:20px;
+			width:58%;
+			outline:1px solid blue;
+		}
+		fieldset {
+			margin:2px;
+			border:2px solid gray;/*rest后要重设置*/
+			padding:2px;
+
+		}
+		legend {
+			font-size:16px;
+		}
+		p input {
+			height:20px;
+			font-size:16px;
+			margin-bottom:5px;
+		}
+		[type="radio"],[type="checkbox"] {
+			width:20px;
+			height:20px;
+			vertical-align:middle;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="vis_window">
+		<form name="test"  autocomplete=on action="" method="post" enctype="application/x-www-form-urlencoded">
+			<p><label for="">姓名：<input type="text" name="custname" required></label></p>
+			<p><label for="">电话：<input type="tel" name="custtel" required></label></p>
+			<p><label for="">邮箱：<input type="email" name="custemail" ></label></p>
+			<fieldset>
+				<legend>披萨大小</legend>
+				<label for=""><input type="radio" name="size" value="small" required>小</label>
+				<label for=""><input type="radio" name="size" value="medium" required>中</label>
+				<label for=""><input type="radio" name="size" value="large" required>大</label>
+			</fieldset>
+			<fieldset>
+				<legend>披萨配料</legend>
+				<label for=""><input type="checkbox" name="topping" value="bacon">熏肉</label>
+				<label for=""><input type="checkbox" name="topping" value="cheese">奶酪</label>
+				<label for=""><input type="checkbox" name="topping" value="onion">洋葱</label>
+				<label for=""><input type="checkbox" name="topping" value="mushroom">蘑菇</label>
+			</fieldset>
+			<p><label for="">配送时间：<input type="time" name="delivery" min="11:00" max="21:00" step="900"></label></p>
+			<p><button type="submit">提交订单</button></p>
+		</form>
+	</div>
+	<script>
+		var test_form=document.forms.test;
+		console.log(test_form['custtel']);
+		$("[name='custname']").on('invalid',function(event){
+			var target=event.target;
+			if(target.validity.valueMissing){
+				target.setCustomValidity('请输入姓名');
+			}
+		})
+		$("[name='custtel']").on('invalid',function(event){
+			var target=event.target;
+			if(target.validity.valueMissing){
+				target.setCustomValidity('请输入电话');
+			}
+		})
+		$("[name='size']").on('invalid',function(event){
+			var target=event.target;
+			if(target.validity.valueMissing){
+				target.setCustomValidity('请输入尺寸');
+			}
+		})
+		$("[name='delivery']").on('invalid',function(event){
+			var target=event.target;
+			if(target.validity.valueMissing){
+				target.setCustomValidity('请确定配送时间');
+			}
+		})
+	</script>
+</body>
+</html>

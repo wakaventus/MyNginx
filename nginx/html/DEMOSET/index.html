@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="index.css">
+	
+</head>
+<body>
+	<ul class="index">
+		<li><a href="Suspend/suspend.html">Suspend</a></li>
+		<li><a href="bannerModule/banner.html">bannerModule</a></li>
+		<!-- <li><a href="homework-2/index.html">Netease homework</a></li> -->
+		<li><a href="web-Gradient/demo-web-Gradient.html">web-Gradient</a></li>
+		<!-- <li><a href="layout/demo-layout-center.html">Layout</a></li>
+		<li><a href="layout/demo-layout-fullscreen-1.html">全屏定长</a></li>
+		<li><a href="layout/demo-layout-fullscreen-2.html">全屏定比</a></li>
+		<li><a href="switch/index.html">Switch</a></li> -->
+		<li><a href="messageModel/demo.html">showNessageModule</a></li>
+		<li><a href="#">Comming Soon</a></li>
+	</ul>
+	<!-- <div id="test">test</div> -->
+	<script>
+		var indexLi=document.getElementsByTagName("li");
+		console.log(indexLi.length);
+		indexLi[indexLi.length-1].onclick=function(e){
+			console.log("ok");			
+			if(e.target.innerHTML=="☀"){
+				e.target.style="font-size:16px";
+				e.target.innerHTML="Comming Soon"
+			}else{
+				e.target.style="font-size:30px";
+				e.target.innerHTML="☀";
+			}			
+		}
+	</script>
+</body>
+</html>

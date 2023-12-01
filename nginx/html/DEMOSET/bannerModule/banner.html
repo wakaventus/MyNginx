@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo-test-0930</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="banner.css">
+	<style>
+		#banner_position {
+			width:1000px;
+			margin:0 auto;
+			margin-top: 150px;
+			overflow: hidden;
+		}
+	</style>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<div id="banner_position">
+		<!-- <div class="mod_vis_window">
+		<div class="translate_line" style="transform:translateX(-100%) translateZ(0px);transition:0.5s;">
+			<div class="slide" style="left:0%">
+			<img src="img-2/images/work_05.jpg">
+			</div>
+			<div class="slide slide_active" style="left:100%">
+			<img src="img-2/images/work_01.jpg">
+			</div>
+			<div class="slide" style="left:200%">
+			<img src="img-2/images/work_02.jpg">
+			</div>
+		</div>
+		<p class="intro">可拖拽、宽度响应</p>
+		<div class="cursor">
+			<a href="#">&lt</a>
+			<a href="#" class="active">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">7</a>
+			<a href="#">&gt</a>
+		</div>
+	</div> -->		
+	</div>
+
+	<script src="banner.js"></script>
+	<script>	
+	var banner1=new Banner({
+		// imageUrl : 'img/images/work_',//命名规范 img/images/work_01
+		imageUrl : 'https://ventus-singapor-bucket.s3.ap-southeast-1.amazonaws.com/bannerModuleImages/work_',
+		imageStyle : 'jpg',
+		imagesNumber : 7,//展示图片数量
+		mod_vis_window_width : 340,//视口宽度px
+		autoPlay : true,//自动轮播
+		drag : true,//拖拽
+	});
+
+	$("#banner_position").append(banner1.mod_vis_window);
+
+
+	</script>
+</body>
+</html>

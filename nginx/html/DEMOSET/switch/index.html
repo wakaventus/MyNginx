@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>	
+	<script src="jquery.js"></script>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="dist/css/bootstrap-colorpicker.css">
+	<script src="dist/js/bootstrap-colorpicker.js"></script>
+	<script src="bootstrap.js"></script>
+	<style>
+		#on_off{
+			margin:10px;
+			width:70px;
+			height:50px;
+			font-size: 20px;
+		}
+		#color {
+			display: block;
+			margin:10px 10px;
+			width:250px;
+			height:50px;
+			border:5px solid gray;
+		}
+		
+	</style>
+</head>
+<body id="body">
+	<div data-role="main" class="ui-contain">
+		<button id="on_off">On</button>
+		<!-- <input id="color" type="color"> -->
+		<input id="color" type="text" class="form-control">
+		<!-- <div id="color"></div> -->
+	</div>
+	<script>
+		$(function () {
+              $('#color').colorpicker({
+                  align: 'left',
+                  customClass: 'colorpicker-2x',
+                  sliders: {
+                      saturation: {
+                          maxLeft: 200,
+                          maxTop: 200
+                      },
+                      hue: {
+                          maxTop: 200
+                      },
+                      alpha: {
+                          maxTop: 200
+                      }
+                  }
+              });
+          });	
+
+		var color=document.getElementById('color');
+			color.addEventListener('change',function(e){
+				var ele=e.target;
+				var rgbhex=ele.value;
+				// var color_arr=[];
+				// color_arr=hex2rgb(rgbhex);
+					
+			})
+			var on_off=document.getElementById('on_off');
+			on_off.addEventListener('click',function(e){
+				var ele=e.target;
+				if(ele.innerHTML=='On'){
+					ele.innerHTML='Off';
+					ajax({
+						type:"GET",
+						url:"./switch",
+						data:{on_off:'off'}
+					});
+				}else{
+					ele.innerHTML='On';
+					ajax({
+						type:"GET",
+						url:"./switch",
+						data:{on_off:'on'}
+					});
+				}
+			}.bind(this),false);
+			
+			
+			// str="#nnnnnn"
+			
+			/*
+			 * options{
+			 * 	type:"GET",
+			 * 	url:"./",
+			 * 	data:{userName:value1,password:value2},
+			 * 	success:function(result){},
+			 * 	error:function(message){},
+			 * }
+			 * 
+			 */
+		    var ajax = function(options) {
+		        var options = options || {};
+		        //参数按照大写标准
+		        options.type = (options.type || "POST").toUpperCase();
+		        var xhr = new XMLHttpRequest();
+		        xhr.onreadystatechange = function(){
+		            if(xhr.readyState == 4){
+		                var status = xhr.status;
+		                if(status >= 200 && status < 300 || status == 304){
+		                	// var json = JSON.parse(xhr.responseText);
+		                	// if(json && json.code == 200){
+		                	// 	options.success && options.success(json.result);
+		                	// }else{
+		                	// 	options.error && options.error(json.message);
+		                	// }
+		                }else{
+		                    options.error && options.error('请求失败');
+		                }
+		            }
+		        }
+		        if(options.type == "POST"){
+		            xhr.open("POST", options.url, true);
+		            //对应表单的头设置           
+		            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		             //若上传文件multipart/form-data
+		            xhr.send(util.serialize(options.data));
+		        }else{
+		        	xhr.open("GET", options.url + "?" + serialize(options.data), true);
+		            xhr.send(null);
+		        }
+		    }  
+		    function serialize(jsObj){
+	        if(!jsObj) return '';
+	        var pairs=[];
+	        for(var name in jsObj){
+	            if(!jsObj.hasOwnProperty(name)) continue;//过滤出key
+	            if(typeof jsObj[name]==='function') continue;//过滤掉函数
+	            var value=jsObj[name].toString();
+	            name = encodeURIComponent(name);
+	            value = encodeURIComponent(value);
+	            pairs.push(name + '=' + value);
+	        }
+	        return pairs.join('&');
+			}  
+		</script>
+</body>
+</html>

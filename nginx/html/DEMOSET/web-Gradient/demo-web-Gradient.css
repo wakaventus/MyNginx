@@ -1,0 +1,131 @@
+.window {
+	position:relative;
+}
+  .up {
+		height:622px;
+		width:100%;
+		background: url(https://ventus-singapor-bucket.s3.ap-southeast-1.amazonaws.com/webGradient/01.jpg) no-repeat 0px -100px ;
+		/* background: url(img/01.jpg) no-repeat 0px -100px ; */
+		background-size:100% auto;
+		background: linear-gradient(to bottom right, rgba(10,10,240,0,8) , rgba(10,10,240,0.1));
+	}
+	.center {
+		position:absolute;
+		top:570px;
+		left:50%;
+		transform:translateX(-50%);
+		width:900px;
+		height:100px;
+		background-color:rgb(0,48,226);
+		outline:2px solid #001c80;
+	}
+	.center > div {
+		display:inline-block;
+		color:white;
+		height:60px;
+		position:absolute;
+		top:20px;
+		border-radius:2px;
+	}
+	.center > div > div {
+		height:40px;
+		background-color:white;
+		text-align:center;
+		line-height:40px;
+		border-radius:2px;
+	}
+	.center > div:nth-child(1) {
+		top:20px;
+		left:30px;
+	}
+	.center > div:nth-child(2) {
+		top:20px;
+		left:195px;
+		width:140px;
+		height:57px;
+	}	
+		.center > div:nth-child(2) >div {
+			text-align:center;
+		}
+	    .center > div:nth-child(2) button {
+	  	  display:inline-block;
+	  	  margin-left:4px;
+	  	  width:25px;
+	  	  height:20px;
+	    }
+	.center > div:nth-child(3) {
+		left:357px;
+		width:96px;
+	}
+	.center > div:nth-child(3) > div {
+		text-align:center;
+		line-height:40px;
+	}
+	.center > div:nth-child(4) {
+		left:463px;
+		width:97px;
+	}
+
+	.center > div:nth-child(5) {
+		left:600px;
+		top:35px;
+		text-align:center;		
+	}
+	.center > div:nth-child(6) {
+		text-align:center;
+		left:695px;
+		width:183px;
+		display:table-cell;
+		vertical-align:middle;
+		position:relative;
+		background-color:rgb(31,40,78);
+	}
+	.center > div:nth-child(6) > div {			
+		line-height:20px;
+		background-color:rgb(31,40,78);
+	}
+	
+.down {
+	height:300px;
+}
+.down > div:nth-child(1) {	
+	display:block;
+	width:900px;
+	margin:115px auto;
+	margin-bottom:22px;
+	text-align:center;
+}
+.down > div:nth-child(2) {
+	width:900px;
+	margin:0 auto;
+	text-align:center;
+}
+.down > div:nth-child(3) {
+	width:900px;
+	margin:10px auto 47px;
+	text-align:center;
+}
+.down > div:nth-child(4){
+	width:515px;
+	margin:0 auto;
+}
+.fix {
+	margin-left:-60px;
+	height:400px;
+}
+.fix > div {	
+	display:inline-block;
+	width:25%;
+	box-sizing:border-box;
+	padding-left:60px;
+	height:104px;
+}
+.fix > div > div {
+	width:94px;
+	height:84px;
+	background:url(img/pro.png) no-repeat -15px -10px;
+}
+.fix  > div > p {
+	font-size:15px;
+	font-weight:bold;
+}
